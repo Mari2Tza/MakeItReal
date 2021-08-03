@@ -1,0 +1,39 @@
+;DEFINIMOS LAS PLANTILLAS PARA LA CESAREA
+
+;para la cesaria
+(deftemplate cesarea
+(slot tipo)			;prevista;improvisada
+)
+
+;para el bebe
+(deftemplate bebe
+(slot posicion)			;podalica
+(slot cabeza_grande)	;si
+(slot ritmo_cardiaco)	;no_es_regular
+(slot explusar_meconio) ;si
+)
+
+;para la madre
+(deftemplate madre
+(slot enfermedad)			;gestosisi ;diabetes_gravidica
+(slot problema)				;corazon, renales, graves_infecciones_vias_genitales
+)
+
+;para la placenta
+(deftemplate placenta
+(slot posicion)			;previa_central
+(slot estado)		;desprendida
+)
+
+;para la incision
+(deftemplate incision
+(slot tipo)	;umbilico_pubica ;tranversal_baja ;joel_coell
+)
+
+;HECHOS
+(deffacts hechos_iniciales
+	;Para las cesareas previstas
+	(bebe (posicion podalica) (cabeza_grande no)(ritmo_cardiaco regular) (explusar_meconio no))
+	(madre (enfermedad gestosisi) (problema corazon))
+	(placenta (posicion previa_central)(estado))		;si
+)
